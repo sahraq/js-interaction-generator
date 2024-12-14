@@ -1,7 +1,161 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-<!DOCTYPE html>
+<html lang="en">
+<head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Silly One-Liner Generator</title>
+  <style>
+    /* General body styles */
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f9;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+      color: #333;
+    }
+
+    /* Header styles */
+    header {
+      background-color: #ff6f61;
+      color: white;
+      text-align: center;
+      padding: 40px;
+      width: 100%;
+      margin-bottom: 20px;
+      border-radius: 0 0 20px 20px;
+    }
+
+    header h1 {
+      font-size: 3em;
+      margin: 0;
+    }
+
+    header p {
+      font-size: 1.3em;
+      margin: 10px 0 0;
+    }
+
+    /* Main content area */
+    .container {
+      background-color: white;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 600px;
+    }
+
+    /* Label and input styles */
+    label {
+      font-size: 1.2em;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 12px;
+      font-size: 1.1em;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      border: 2px solid #ff6f61;
+      box-sizing: border-box;
+    }
+
+    button {
+      background-color: #ff6f61;
+      color: white;
+      font-size: 1.2em;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 8px;
+      width: 100%;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #e65550;
+    }
+
+    /* Output styles */
+    #fortune-output {
+      margin-top: 20px;
+      font-size: 1.5em;
+      color: #ff6f61;
+      text-align: center;
+      font-weight: bold;
+      padding: 20px;
+      background-color: #fffbf7;
+      border-radius: 8px;
+      border: 2px solid #ff6f61;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Silly One-Liner Generator</h1>
+    <p>Let me make you smile with a funny twist using your name!</p>
+  </header>
+
+  <div class="container">
+    <label for="fortune-input">Enter your name:</label>
+    <input type="text" id="fortune-input" placeholder="Your Name Here...">
+    <button id="fortune-button">Make Me Laugh</button>
+
+    <div id="fortune-output"></div>
+  </div>
+
+  <script>
+    // silly one-liners
+    const oneLiners = [
+      "Why did {name} cross the road? To escape this website!",
+      "{name}, did you just steal the moon? Because you light up the night!",
+      "Breaking news: {name} is now officially the king/queen of silliness!",
+      "{name}, you just won an award for being the most awesome person here.",
+      "{name}, you’re so cool, penguins ask you for tips on chilling out!"
+    ];
+
+    
+    function restyle() {
+      const fortuneOutput = document.getElementById("fortune-output");
+
+      // Apply predetermined styles
+      fortuneOutput.style.color = "#ff6f61";  // Set text color
+      fortuneOutput.style.fontSize = "2em";   // Set font size
+      fortuneOutput.style.fontWeight = "bold"; // Set font weight to bold
+      fortuneOutput.style.textTransform = "uppercase"; // Transform text to uppercase
+    }
+
+    // event listener 
+    document.getElementById("fortune-button").addEventListener("click", function () {
+      let name = document.getElementById("fortune-input").value;
+      if (name) {
+        let randomOneLiner = oneLiners[Math.floor(Math.random() * oneLiners.length)];
+        // Replace "{name}" with the user's name
+        let oneLinerText = randomOneLiner.replace("{name}", name);
+        document.getElementById("fortune-output").innerText = oneLinerText;
+        
+        
+        restyle();
+      } else {
+        alert("Please enter your name.");
+      }
+    });
+  </script>
+
+</body>
+</html>
+8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Silly One-Liner Generator</title>
   <style>
