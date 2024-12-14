@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Silly One-Liner Generator</title>
+  <style>
+    #fortune-output {
+      font-size: 16px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- One-Liner Section -->
+  <label>Give me your name and I'll give you a silly one-liner...
+    <input id="fortune-input">
+  </label>
+  <button id="fortune-button">Make Me Laugh</button>
+  <br><br>
+  <div id="fortune-output"></div>
+
+  <script>
+    // silly one-liners
+    const oneLiners = [
+      "Why did {name} cross the road? To escape this website!",
+      "{name}, did you just steal the moon? Because you light up the night!",
+      "Breaking news: {name} is now officially the king/queen of silliness!",
+      "{name}, you just won an award for being the most awesome person here.",
+      "{name}, you’re so cool, penguins ask you for tips on chilling out!"
+    ];
+
+    // event listener
+    document.getElementById("fortune-button").addEventListener("click", function () {
+      let name = document.getElementById("fortune-input").value;
+      if (name) {
+        let randomOneLiner = oneLiners[Math.floor(Math.random() * oneLiners.length)];
+        // Replace "{name}" with the user's name
+        let oneLinerText = randomOneLiner.replace("{name}", name);
+        document.getElementById("fortune-output").innerText = oneLinerText;
+        restyle(); // Apply random styles
+      } else {
+        alert("Please enter your name.");
+      }
+    });
+
+    //  restyle one-liner text
+    function restyle() {
+      const fortuneOutput = document.getElementById("fortune-output");
+      const randomColors = ["red", "blue", "green", "purple", "orange"];
+      const randomSizes = ["16px", "20px", "24px", "28px", "32px"];
+      const randomFonts = ["Arial", "Verdana", "Georgia", "Times New Roman", "Courier New"];
+
+      // random styles
+      fortuneOutput.style.color = randomColors[Math.floor(Math.random() * randomColors.length)];
+      fortuneOutput.style.fontSize = randomSizes[Math.floor(Math.random() * randomSizes.length)];
+      fortuneOutput.style.fontFamily = randomFonts[Math.floor(Math.random() * randomFonts.length)];
+    }
+  </script>
+</body>
+</html>
