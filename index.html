@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,9 +11,9 @@
             padding: 0;
             box-sizing: border-box;
         }
-        body {
+          body {
             font-family: 'Arial', sans-serif;
-            background-image: url('https://raw.githubusercontent.com/sahraq/js-interaction-generator/main/crying-laughing.gif');
+            background-image: url('laughing.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed; 
@@ -72,12 +73,26 @@
             justify-content: center;
             font-style: italic;
         }
+        #half-output {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            margin-top: 20px;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Joke Generator</h1>
         
+        <div class="input-group">
+            <input type="number" id="half-input" placeholder="Enter a number to halve">
+            <button id="half-button">Halve Number</button>
+        </div>
+        <div id="half-output"></div>
+
         <div class="input-group">
             <input id="joke-input" placeholder="Enter your name for a joke">
             <button id="joke-button">Get Joke</button>
@@ -86,6 +101,19 @@
     </div>
 
     <script>
+        // Half Calculator Function
+        document.getElementById('half-button').addEventListener('click', function() {
+            const input = document.getElementById('half-input');
+            const output = document.getElementById('half-output');
+            const number = parseFloat(input.value);
+            
+            if (!isNaN(number)) {
+                output.textContent = `Half of ${number} is ${number / 2}`;
+            } else {
+                output.textContent = 'Please enter a valid number';
+            }
+        });
+
         // Joke Function
         function generateJoke(name) {
             const jokes = [
