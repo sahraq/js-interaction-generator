@@ -1,283 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Silly One-Liner Generator</title>
-  <style>
-    /* General body styles */
-    body {
-      font-family: 'Arial', sans-serif;
-      background-color: #f4f4f9;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      flex-direction: column;
-      color: #333;
-    }
-
-    /* Header styles */
-    header {
-      background-color: #ff6f61;
-      color: white;
-      text-align: center;
-      padding: 40px;
-      width: 100%;
-      margin-bottom: 20px;
-      border-radius: 0 0 20px 20px;
-    }
-
-    header h1 {
-      font-size: 3em;
-      margin: 0;
-    }
-
-    header p {
-      font-size: 1.3em;
-      margin: 10px 0 0;
-    }
-
-    /* Main content area */
-    .container {
-      background-color: white;
-      padding: 40px;
-      border-radius: 10px;
-      box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
-      width: 100%;
-      max-width: 600px;
-    }
-
-    /* Label and input styles */
-    label {
-      font-size: 1.2em;
-      margin-bottom: 10px;
-      display: block;
-    }
-
-    input[type="text"] {
-      width: 100%;
-      padding: 12px;
-      font-size: 1.1em;
-      margin-bottom: 20px;
-      border-radius: 8px;
-      border: 2px solid #ff6f61;
-      box-sizing: border-box;
-    }
-
-    button {
-      background-color: #ff6f61;
-      color: white;
-      font-size: 1.2em;
-      padding: 12px 20px;
-      border: none;
-      border-radius: 8px;
-      width: 100%;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-
-    button:hover {
-      background-color: #e65550;
-    }
-
-    /* Output styles */
-    #fortune-output {
-      margin-top: 20px;
-      font-size: 1.5em;
-      color: #ff6f61;
-      text-align: center;
-      font-weight: bold;
-      padding: 20px;
-      background-color: #fffbf7;
-      border-radius: 8px;
-      border: 2px solid #ff6f61;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joke Generator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 500px;
+            padding: 30px;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 2rem;
+        }
+        .input-group {
+            margin-bottom: 20px;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #joke-output {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            margin-top: 20px;
+            min-height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-style: italic;
+        }
+    </style>
 </head>
 <body>
+    <div class="container">
+        <h1>Joke Generator</h1>
 
-  <header>
-    <h1>Silly One-Liner Generator</h1>
-    <p>Let me make you smile with a funny twist using your name!</p>
-  </header>
+        <div class="input-group">
+            <input id="joke-input" placeholder="Enter your name for a joke">
+            <button id="joke-button">Get Joke</button>
+        </div>
+        <div id="joke-output"></div>
+    </div>
 
-  <div class="container">
-    <label for="fortune-input">Enter your name:</label>
-    <input type="text" id="fortune-input" placeholder="Your Name Here...">
-    <button id="fortune-button">Make Me Laugh</button>
+    <script>
+        // Joke Function
+        function generateJoke(name) {
+            const jokes = [
+                `${name} walks into a bar... and then realizes it was actually a pole.`,
+                `I told ${name} to act naturally. Now they're standing completely still.`,
+                `${name} is so bad at hide and seek, they once hid behind a see-through curtain.`,
+                `${name} tried to catch fog yesterday. Mist.`,
+                `${name} is so uncoordinated, they trip over wireless internet.`,
+                `Why did ${name} bring a ladder to the bar? They heard the drinks were on the house!`,
+                `${name} is so literal, they tried to take a screenshot with a camera.`,
+                `I asked ${name} to name two things they could improve at. They said "my ability to count".`
+            ];
 
-    <div id="fortune-output"></div>
-  </div>
+            return jokes[Math.floor(Math.random() * jokes.length)];
+        }
 
-  <script>
-    // silly one-liners
-    const oneLiners = [
-      "Why did {name} cross the road? To escape this website!",
-      "{name}, did you just steal the moon? Because you light up the night!",
-      "Breaking news: {name} is now officially the king/queen of silliness!",
-      "{name}, you just won an award for being the most awesome person here.",
-      "{name}, you’re so cool, penguins ask you for tips on chilling out!"
-    ];
+        // Restyle Function
+        function restyle(element) {
+            const colors = ['#FF6B6B', '#4ECDC4', '#45B7D1', '#FDCB6E', '#6C5CE7'];
+            const fontSizes = ['16px', '20px', '24px'];
+            const fontStyles = ['normal', 'italic'];
 
-    
-    function restyle() {
-      const fortuneOutput = document.getElementById("fortune-output");
+            element.style.color = colors[Math.floor(Math.random() * colors.length)];
+            element.style.fontSize = fontSizes[Math.floor(Math.random() * fontSizes.length)];
+            element.style.fontStyle = fontStyles[Math.floor(Math.random() * fontStyles.length)];
+        }
 
-      // Apply predetermined styles
-      fortuneOutput.style.color = "#ff6f61";  // Set text color
-      fortuneOutput.style.fontSize = "2em";   // Set font size
-      fortuneOutput.style.fontWeight = "bold"; // Set font weight to bold
-      fortuneOutput.style.textTransform = "uppercase"; // Transform text to uppercase
-    }
+        // Joke Button Event Listener
+        document.getElementById('joke-button').addEventListener('click', function() {
+            const input = document.getElementById('joke-input');
+            const output = document.getElementById('joke-output');
+            const name = input.value || 'Anonymous';
 
-    // event listener 
-    document.getElementById("fortune-button").addEventListener("click", function () {
-      let name = document.getElementById("fortune-input").value;
-      if (name) {
-        let randomOneLiner = oneLiners[Math.floor(Math.random() * oneLiners.length)];
-        // Replace "{name}" with the user's name
-        let oneLinerText = randomOneLiner.replace("{name}", name);
-        document.getElementById("fortune-output").innerText = oneLinerText;
-        
-        
-        restyle();
-      } else {
-        alert("Please enter your name.");
-      }
-    });
-  </script>
-
-</body>
-</html>
-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Silly One-Liner Generator</title>
-  <style>
-    /* General styles */
-    body {
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #ffafbd, #ffc3a0);
-      color: #333;
-      margin: 0;
-      padding: 0;
-    }
-
-    /* Header styles */
-    header {
-      background-color: #ff6f61;
-      color: white;
-      text-align: center;
-      padding: 20px 0;
-    }
-
-    header h1 {
-      margin: 0;
-      font-size: 2.5em;
-    }
-
-    header p {
-      margin: 5px 0 0;
-      font-size: 1.2em;
-    }
-
-    /* Main container */
-    .container {
-      max-width: 800px;
-      margin: 30px auto;
-      background: white;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    }
-
-    /* Input form */
-    label {
-      font-size: 1.2em;
-      display: block;
-      margin-bottom: 10px;
-    }
-
-    input[type="text"] {
-      width: 100%;
-      padding: 10px;
-      font-size: 1em;
-      border: 2px solid #ff6f61;
-      border-radius: 5px;
-      margin-bottom: 20px;
-    }
-
-    button {
-      background-color: #ff6f61;
-      color: white;
-      font-size: 1em;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-
-    button:hover {
-      background-color: #e65550;
-    }
-
-    /* Output section */
-    #fortune-output {
-      font-size: 1.5em;
-      color: #333;
-      text-align: center;
-      margin-top: 20px;
-      padding: 10px;
-      border-radius: 5px;
-      border: 2px solid #ff6f61;
-      background-color: #fff3f1;
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <h1>Silly One-Liner Generator</h1>
-    <p>Because life is too short to be serious!</p>
-  </header>
-
-  <div class="container">
-    <!-- Input Form -->
-    <label for="fortune-input">Enter your name, and I'll make you laugh:</label>
-    <input type="text" id="fortune-input" placeholder="Your Name Here...">
-    <button id="fortune-button">Make Me Laugh</button>
-
-    <!-- Output Section -->
-    <div id="fortune-output"></div>
-  </div>
-
-  <script>
-    //silly one-liners
-    const oneLiners = [
-      "Why did {name} cross the road? To escape this website!",
-      "{name}, did you just steal the moon? Because you light up the night!",
-      "Breaking news: {name} is now officially the king/queen of silliness!",
-      "{name}, you just won an award for being the most awesome person here.",
-      "{name}, you’re so cool, penguins ask you for tips on chilling out!"
-    ];
-
-    // event listener
-    document.getElementById("fortune-button").addEventListener("click", function () {
-      let name = document.getElementById("fortune-input").value;
-      if (name) {
-        let randomOneLiner = oneLiners[Math.floor(Math.random() * oneLiners.length)];
-        // Replace "{name}" with the user's name
-        let oneLinerText = randomOneLiner.replace("{name}", name);
-        document.getElementById("fortune-output").innerText = oneLinerText;
-      } else {
-        alert("Please enter your name.");
-      }
-    });
-  </script>
+            output.textContent = generateJoke(name);
+            restyle(output);
+        });
+    </script>
 </body>
 </html>
