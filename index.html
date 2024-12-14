@@ -1,27 +1,109 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Silly One-Liner Generator</title>
   <style>
+    /* General styles */
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #ffafbd, #ffc3a0);
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Header styles */
+    header {
+      background-color: #ff6f61;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+    }
+
+    header p {
+      margin: 5px 0 0;
+      font-size: 1.2em;
+    }
+
+    /* Main container */
+    .container {
+      max-width: 800px;
+      margin: 30px auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Input form */
+    label {
+      font-size: 1.2em;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      font-size: 1em;
+      border: 2px solid #ff6f61;
+      border-radius: 5px;
+      margin-bottom: 20px;
+    }
+
+    button {
+      background-color: #ff6f61;
+      color: white;
+      font-size: 1em;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #e65550;
+    }
+
+    /* Output section */
     #fortune-output {
-      font-size: 16px;
-      margin-top: 10px;
+      font-size: 1.5em;
+      color: #333;
+      text-align: center;
+      margin-top: 20px;
+      padding: 10px;
+      border-radius: 5px;
+      border: 2px solid #ff6f61;
+      background-color: #fff3f1;
     }
   </style>
 </head>
 <body>
+  <header>
+    <h1>Silly One-Liner Generator</h1>
+    <p>Because life is too short to be serious!</p>
+  </header>
 
-  <!-- One-Liner Section -->
-  <label>Give me your name and I'll give you a silly one-liner...
-    <input id="fortune-input">
-  </label>
-  <button id="fortune-button">Make Me Laugh</button>
-  <br><br>
-  <div id="fortune-output"></div>
+  <div class="container">
+    <!-- Input Form -->
+    <label for="fortune-input">Enter your name, and I'll make you laugh:</label>
+    <input type="text" id="fortune-input" placeholder="Your Name Here...">
+    <button id="fortune-button">Make Me Laugh</button>
+
+    <!-- Output Section -->
+    <div id="fortune-output"></div>
+  </div>
 
   <script>
-    // silly one-liners
+    //silly one-liners
     const oneLiners = [
       "Why did {name} cross the road? To escape this website!",
       "{name}, did you just steal the moon? Because you light up the night!",
@@ -38,24 +120,10 @@
         // Replace "{name}" with the user's name
         let oneLinerText = randomOneLiner.replace("{name}", name);
         document.getElementById("fortune-output").innerText = oneLinerText;
-        restyle(); // Apply random styles
       } else {
         alert("Please enter your name.");
       }
     });
-
-    //  restyle one-liner text
-    function restyle() {
-      const fortuneOutput = document.getElementById("fortune-output");
-      const randomColors = ["red", "blue", "green", "purple", "orange"];
-      const randomSizes = ["16px", "20px", "24px", "28px", "32px"];
-      const randomFonts = ["Arial", "Verdana", "Georgia", "Times New Roman", "Courier New"];
-
-      // random styles
-      fortuneOutput.style.color = randomColors[Math.floor(Math.random() * randomColors.length)];
-      fortuneOutput.style.fontSize = randomSizes[Math.floor(Math.random() * randomSizes.length)];
-      fortuneOutput.style.fontFamily = randomFonts[Math.floor(Math.random() * randomFonts.length)];
-    }
   </script>
 </body>
 </html>
