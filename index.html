@@ -10,23 +10,9 @@
             padding: 0;
             box-sizing: border-box;
         }
-          body {
+        body {
             font-family: 'Arial', sans-serif;
-            background-image: url('<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Joke Generator</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-          body {
-            font-family: 'Arial', sans-serif;
-            background-image: url('https://github.com/sahraq/js-interaction-generator/blob/main/crying-laughing.gif?raw=true');
+            background-image: url('https://raw.githubusercontent.com/sahraq/js-interaction-generator/main/crying-laughing.gif');
             background-size: cover;
             background-position: center;
             background-attachment: fixed; 
@@ -85,128 +71,6 @@
             align-items: center;
             justify-content: center;
             font-style: italic;
-        }
-       
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>Joke Generator</h1>
-
-        <div class="input-group">
-            <input id="joke-input" placeholder="Enter your name for a joke">
-            <button id="joke-button">Get Joke</button>
-        </div>
-        <div id="joke-output"></div>
-    </div>
-
-    <script>
-
-        // Joke Function
-        function generateJoke(name) {
-            const jokes = [
-                `${name} walks into a bar... and then realizes it was actually a pole.`,
-                `I told ${name} to act naturally. Now they're standing completely still.`,
-                `${name} is so bad at hide and seek, they once hid behind a see-through curtain.`,
-                `${name} tried to catch fog yesterday. Mist.`,
-                `${name} is so uncoordinated, they trip over wireless internet.`,
-                `Why did ${name} bring a ladder to the bar? They heard the drinks were on the house!`,
-                `${name} is so literal, they tried to take a screenshot with a camera.`,
-                `I asked ${name} to name two things they could improve at. They said "my ability to count".`
-            ];
-
-            return jokes[Math.floor(Math.random() * jokes.length)];
-        }
-
-        // Restyle Function
-        function restyle(element) {
-            const colors = ['#FF6B6B', '#4ECDC4', '#45B7D1', '#FDCB6E', '#6C5CE7'];
-            const fontSizes = ['16px', '20px', '24px'];
-            const fontStyles = ['normal', 'italic'];
-
-            element.style.color = colors[Math.floor(Math.random() * colors.length)];
-            element.style.fontSize = fontSizes[Math.floor(Math.random() * fontSizes.length)];
-            element.style.fontStyle = fontStyles[Math.floor(Math.random() * fontStyles.length)];
-        }
-
-        // Joke Button Event Listener
-        document.getElementById('joke-button').addEventListener('click', function() {
-            const input = document.getElementById('joke-input');
-            const output = document.getElementById('joke-output');
-            const name = input.value || 'Anonymous';
-
-            output.textContent = generateJoke(name);
-            restyle(output);
-        });
-    </script>
-</body>
-</html>');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed; 
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            padding: 20px;
-            line-height: 1.6;
-        }
-        .container {
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            width: 100%;
-            max-width: 500px;
-            padding: 30px;
-            text-align: center;
-        }
-        h1 {
-            color: #333;
-            margin-bottom: 20px;
-            font-size: 2rem;
-        }
-        .input-group {
-            margin-bottom: 20px;
-        }
-        input {
-            width: 100%;
-            padding: 10px;
-            border: 2px solid #ddd;
-            border-radius: 5px;
-            font-size: 1rem;
-        }
-        button {
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 1rem;
-            transition: background-color 0.3s ease;
-        }
-        button:hover {
-            background-color: #45a049;
-        }
-        #joke-output {
-            background-color: #f9f9f9;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            padding: 15px;
-            margin-top: 20px;
-            min-height: 100px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-style: italic;
-        }
-        #half-output {
-            background-color: #f9f9f9;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            padding: 15px;
-            margin-top: 20px;
-            text-align: center;
         }
     </style>
 </head>
@@ -215,12 +79,6 @@
         <h1>Joke Generator</h1>
         
         <div class="input-group">
-            <input type="number" id="half-input" placeholder="Enter a number to halve">
-            <button id="half-button">Halve Number</button>
-        </div>
-        <div id="half-output"></div>
-
-        <div class="input-group">
             <input id="joke-input" placeholder="Enter your name for a joke">
             <button id="joke-button">Get Joke</button>
         </div>
@@ -228,7 +86,6 @@
     </div>
 
     <script>
-       
         // Joke Function
         function generateJoke(name) {
             const jokes = [
